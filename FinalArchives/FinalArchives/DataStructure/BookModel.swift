@@ -1,19 +1,33 @@
 import Foundation
 
-struct Books: Decodable {
-    let kind: String
-    let totalItems: Int
-    let items: [BookInfo]
+struct BookOject: Decodable {
+    let items: [Items]
 }
 
-struct BookInfo: Decodable {
+struct Items: Decodable {
     let kind: String
-    let selfLink: String
     let id: String
-    let volumeInfo: CreatorsInfo
+    let volumeInfo: VolumeInfo
+    let searchInfo: SearchInfo
 }
-
-struct CreatorsInfo: Decodable {
+struct VolumeInfo: Decodable {
     let title: String
+    let subtitle: String?
     let authors: [String]
+    let imageLinks: ImageLinks
+    let description: String
+}
+struct SearchInfo: Decodable {
+    let textSnippet: String
+}
+struct ImageLinks: Decodable {
+    let smallThumbnail: String
+    let thumbnail: String
+}
+struct SalesInfo: Decodable {
+    let retailPrice: RetailPrice
+}
+struct RetailPrice: Decodable {
+    let amount: String
+    let currencyCode: String
 }

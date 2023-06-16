@@ -6,7 +6,8 @@ struct FinalArchivesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(viewModel: MainView.ViewModel(
+                books:BookOject(items: [])))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

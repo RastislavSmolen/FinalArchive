@@ -17,7 +17,7 @@ extension Services: TargetType {
     var task: Moya.Task {
         switch self {
         case let .find(book):
-            return .requestParameters(parameters: ["q": book,"key": Constants.token.rawValue,], encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["q": book,"key": Constants.token.rawValue], encoding: URLEncoding.default)
         }
     }
     

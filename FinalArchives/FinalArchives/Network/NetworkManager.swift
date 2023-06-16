@@ -3,13 +3,13 @@ import Moya
 
 protocol Networkable {
     var provider: MoyaProvider<Services> { get }
-    func fetchBookResults(searchTerm: String, completion: @escaping (Result<Books, Error>) -> ())
+    func fetchBookResults(searchTerm: String, completion: @escaping (Result<BookOject, Error>) -> ())
 }
 
 class NetworkManager: Networkable {
     var provider = MoyaProvider<Services>(plugins: [NetworkLoggerPlugin()])
     
-    func fetchBookResults(searchTerm: String, completion: @escaping (Result<Books, Error>) -> ()) {
+    func fetchBookResults(searchTerm: String, completion: @escaping (Result<BookOject, Error>) -> ()) {
         request(target: .find(searchTerm), completion: completion)
     }
 }
