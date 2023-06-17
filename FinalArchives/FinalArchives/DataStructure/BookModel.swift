@@ -8,14 +8,15 @@ struct Items: Decodable {
     let kind: String
     let id: String
     let volumeInfo: VolumeInfo
-    let searchInfo: SearchInfo
+    let searchInfo: SearchInfo?
 }
 struct VolumeInfo: Decodable {
     let title: String
     let subtitle: String?
     let authors: [String]
     let imageLinks: ImageLinks
-    let description: String
+    let description: String?
+    let categories: [String]?
 }
 struct SearchInfo: Decodable {
     let textSnippet: String
